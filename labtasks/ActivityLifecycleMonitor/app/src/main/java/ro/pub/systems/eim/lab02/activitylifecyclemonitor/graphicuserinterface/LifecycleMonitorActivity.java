@@ -71,6 +71,20 @@ public class LifecycleMonitorActivity extends AppCompatActivity {
         else
         {
             Log.d("activitylifecycle", "State not NULL");
+
+            if (savedInstanceState.containsKey(Constants.USERNAME_EDIT_TEXT)) {
+                EditText usernameEditText = (EditText)findViewById(R.id.username_edit_text);
+                usernameEditText.setText(savedInstanceState.getString(Constants.USERNAME_EDIT_TEXT));
+            }
+            if (savedInstanceState.containsKey(Constants.PASSWORD_EDIT_TEXT)) {
+                EditText passwordEditText = (EditText)findViewById(R.id.password_edit_text);
+                passwordEditText.setText(savedInstanceState.getString(Constants.PASSWORD_EDIT_TEXT));
+            }
+            if (savedInstanceState.containsKey(Constants.REMEMBER_ME_CHECKBOX)) {
+                CheckBox rememberMeCheckBox = (CheckBox) findViewById(R.id.remember_me_checkbox);
+                rememberMeCheckBox.setChecked(savedInstanceState.getBoolean(Constants.REMEMBER_ME_CHECKBOX));
+            }
+
         }
     }
 
@@ -129,6 +143,7 @@ public class LifecycleMonitorActivity extends AppCompatActivity {
         }
     }
 
+    /*
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -145,5 +160,6 @@ public class LifecycleMonitorActivity extends AppCompatActivity {
             rememberMeCheckBox.setChecked(savedInstanceState.getBoolean(Constants.REMEMBER_ME_CHECKBOX));
         }
     }
+    */
 
 }
